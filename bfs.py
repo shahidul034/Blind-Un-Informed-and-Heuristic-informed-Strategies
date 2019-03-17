@@ -10,26 +10,27 @@ graph = {'Oradea': ['Zerind', 'Sibiu'], 'Zerind': ['Oradea', 'Arad'], 'Arad': ['
          'Urziceni': ['Bucharest', 'Hirsova', 'Vaslui'], 'Hirsova': ['Urziceni', 'Eforie'], 'Eforie': ['Hirsova'],
          'Vaslui': ['Urziceni', 'Iasi'], 'Iasi': ['Vaslui', 'Neamt'], 'Neamt': ['Iasi']}
 
-def DFS(start):
-    L = []
+def BFS(start):
+    L = queue.Queue()
     visited={}
     level={}
-    L.append(start)
+    L.put(start)
     level[start]=0
     for x in graph:
         visited[x]=0
     visited[start] = 1
-    while len(L) != 0 :
-        u=L.pop()
+    while L.empty() == False:
+        u=L.get()
         for v in graph[u]:
             if visited[v]== 0:
                 visited[v]=1
                 level[v]=level[u]+1
-                L.append(v)
+                L.put(v)
 
     for x in graph:
         print(x,"-->",level[x])
 
 
 
-DFS('Arad')
+BFS('Arad')
+
