@@ -14,7 +14,7 @@ graph2 = {'Oradea':{'Zerind':71,'Sibiu':151},'Zerind':{'Oradea':71,'Arad':75},'A
 
 
 fringe={}
-start = 'Arad'
+start = 'Urziceni'
 destination = 'Bucharest'
 gn={}
 for x in hsld:
@@ -26,6 +26,7 @@ def AStar(start,goal):
     if start == goal:
         print("Node found\n")
         return
+    gn[start]=0
     print(start,"--",end="")
     while True:
         if start in graph1:
