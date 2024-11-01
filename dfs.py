@@ -7,7 +7,8 @@ def dfs(n,max_depth):
     for i in range(1, n+1):
         color[i]="white"
     for i in range(1,n+1):
-        dfs_visit(i,0,max_depth)
+        if color[i]=="white":
+            dfs_visit(i,0,max_depth)
 
 
 
